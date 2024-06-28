@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "repo-alchemy"
+version = "0.1.0"
+description = "Repository for Sqlalchemy"
+authors = ["stalexsm <stalex.info@yandex.ru>"]
+readme = "README.md"
+license = "MIT"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlalchemy = "^2.0.31"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.isort]
+profile = "black"
+line_length = 88
+combine_as_imports = true
+skip_gitignore= true
+extra_standard_library = ["typing_extensions"]
+skip=[".gitignore",".dockerignore",".env", "env.example", ".venv"]
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.env
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tests/.*/setup.py
+)/
+'''
+
+[tool.ruff]
+ignore = ["E501"]
